@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cghv4kv7oxdt"]
+
+[ext_resource type="Script" uid="uid://3qjuanqf8bi3" path="res://papa.gd" id="1_qivgk"]
+[ext_resource type="Texture2D" uid="uid://dpyn41l2buanp" path="res://NASA/ChatGPT Image 5 oct 2025, 10_56_13.png" id="2_qivgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28sfa"]
+atlas = ExtResource("2_qivgk")
+region = Rect2(480, 0, 480, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlsqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28sfa")
+}],
+"loop": true,
+"name": &"bolsa_papa",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nttnm"]
+radius = 19.686607
+
+[node name="papa" type="StaticBody2D"]
+position = Vector2(200, 242)
+rotation = 0.75032485
+script = ExtResource("1_qivgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -0.75049156
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_qlsqp")
+animation = &"bolsa_papa"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.727506, 2.9258606)
+shape = SubResource("CircleShape2D_nttnm")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

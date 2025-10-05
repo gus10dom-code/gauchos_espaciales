@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "units": {
+      "kc": "coeficiente de cultivo (ETc = kc * ETo)",
+      "base_days": "duración típica del ciclo (días)",
+      "base_N": "fertilizante total estimado (kg/ha, N equivalente)",
+      "t_opt": "temperatura media óptima (°C)",
+      "t_hi": "límite alto a partir del cual cae el rendimiento (°C)",
+      "opt_sm": "humedad de suelo óptima en la zona radicular (m3/m3)",
+      "riego_evento_mm": "lámina típica por evento de riego (mm)"
+    },
+    "note": "Valores pedagógicos para demo. No usar para decisiones reales."
+  },
+  "crops": {
+    "trigo":  { "kc": 1.00, "base_days": 120, "base_N": 120, "t_opt": 18.0, "t_hi": 30.0, "opt_sm": 0.28, "riego_evento_mm": 25.0 },
+    "maíz":   { "kc": 1.10, "base_days": 130, "base_N": 140, "t_opt": 25.0, "t_hi": 35.0, "opt_sm": 0.30, "riego_evento_mm": 25.0 },
+    "arroz":  { "kc": 1.20, "base_days": 130, "base_N": 100, "t_opt": 26.0, "t_hi": 38.0, "opt_sm": 0.35, "riego_evento_mm": 35.0 },
+    "ajo":    { "kc": 0.90, "base_days": 110, "base_N": 60,  "t_opt": 16.0, "t_hi": 28.0, "opt_sm": 0.26, "riego_evento_mm": 15.0 },
+    "soja":   { "kc": 1.05, "base_days": 120, "base_N": 20,  "t_opt": 24.0, "t_hi": 35.0, "opt_sm": 0.30, "riego_evento_mm": 25.0 },
+    "papa":   { "kc": 1.10, "base_days": 110, "base_N": 180, "t_opt": 17.0, "t_hi": 28.0, "opt_sm": 0.32, "riego_evento_mm": 20.0 },
+    "girasol":{ "kc": 0.95, "base_days": 110, "base_N": 60,  "t_opt": 22.0, "t_hi": 34.0, "opt_sm": 0.28, "riego_evento_mm": 25.0 },
+    "zapallo":{ "kc": 1.00, "base_days": 120, "base_N": 80,  "t_opt": 22.0, "t_hi": 34.0, "opt_sm": 0.30, "riego_evento_mm": 20.0 }
+  }
+}

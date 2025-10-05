@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmdt041s4bj53"]
+
+[ext_resource type="Script" uid="uid://0yq480qf0uaj" path="res://verdura.gd" id="1_vii6i"]
+[ext_resource type="Texture2D" uid="uid://bst1rr75kq1gd" path="res://NASA/ChatGPT Image 4 oct 2025, 18_24_57.png" id="2_ih6jq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpuve"]
+atlas = ExtResource("2_ih6jq")
+region = Rect2(320, 300, 350, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar2it"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpuve")
+}],
+"loop": true,
+"name": &"bolsa_girasol",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5y6n"]
+radius = 19.686607
+
+[node name="girasol_semilla" type="StaticBody2D"]
+script = ExtResource("1_vii6i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_ar2it")
+animation = &"bolsa_girasol"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_y5y6n")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

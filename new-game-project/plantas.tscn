@@ -1,0 +1,143 @@
+[gd_scene load_steps=17 format=3 uid="uid://d12fl4rasnw0n"]
+
+[ext_resource type="Texture2D" uid="uid://beoklq85onpob" path="res://NASA/ChatGPT Image 4 oct 2025, 21_03_05.png" id="1_6qjqp"]
+[ext_resource type="Script" uid="uid://cfv8gfoucq6me" path="res://plantas.gd" id="1_cbun5"]
+[ext_resource type="Texture2D" uid="uid://bh1fgxjpt3gnk" path="res://NASA/Sprites/Craftpix - Plantas/PNG/Plants.png" id="2_cbun5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahe6q"]
+atlas = ExtResource("1_6qjqp")
+region = Rect2(160, 250, 700, 570)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21llh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahe6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv4c7"]
+radius = 21.0
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1it6"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(0, 393, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ep3"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(33, 393, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpyfx"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(66, 393, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21llh"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(0, 276, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv4c7"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(33, 276, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30xpf"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(99, 276, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbun5"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(1, 352, 31, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2oh6"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(32, 352, 31, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhpuu"]
+atlas = ExtResource("2_cbun5")
+region = Rect2(63, 352, 31, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30xpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1it6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpyfx")
+}],
+"loop": true,
+"name": &"girasol",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21llh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv4c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30xpf")
+}],
+"loop": true,
+"name": &"papa",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbun5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2oh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhpuu")
+}],
+"loop": true,
+"name": &"trigo",
+"speed": 0.0
+}]
+
+[node name="girasol_crecimiento" type="StaticBody2D"]
+script = ExtResource("1_cbun5")
+
+[node name="azada" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_21llh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_vv4c7")
+
+[node name="pl_girasol" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -17)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_30xpf")
+animation = &"none"
+
+[node name="Timer_girasol" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Timer_papa" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="Timer_trigo" type="Timer" parent="."]
+wait_time = 8.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Timer_girasol" to="." method="_on_timer_girasol_timeout"]
+[connection signal="timeout" from="Timer_papa" to="." method="_on_timer_papa_timeout"]
+[connection signal="timeout" from="Timer_trigo" to="." method="_on_timer_trigo_timeout"]

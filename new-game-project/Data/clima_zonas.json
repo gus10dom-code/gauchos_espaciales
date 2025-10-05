@@ -1,0 +1,43 @@
+{
+  "metadata": {
+	"source": "NASA (formato de integración para demo) — Temperatura (GISS/POWER), Precipitación (GPM IMERG), Humedad de suelo (SMAP L4/GLDAS)",
+	"period": "2015-01 a 2024-12 (promedios estacionales)",
+	"variables": {
+	  "t_mean": "°C",
+	  "rain_total_mm": "mm por estación (suma de 3 meses)",
+	  "soil_moisture": "m³/m³ (volumétrica)"
+	},
+	"season_definition": {
+	  "verano": "Dic–Feb",
+	  "otoño": "Mar–May",
+	  "invierno": "Jun–Ago",
+	  "primavera": "Sep–Nov"
+	}
+  },
+  "zonas": {
+	"Cordoba_AR": {
+	  "coords": { "lat": -31.4, "lon": -64.2 },
+	  "t_anual": 19.2,
+	  "verano":    { "t_mean": 25.0, "rain_total_mm": 310.0, "soil_surface_m3m3": 0.26, "soil_rootzone_m3m3": 0.28 },
+	  "otoño":     { "t_mean": 18.0, "rain_total_mm": 165.0, "soil_surface_m3m3": 0.24, "soil_rootzone_m3m3": 0.27 },
+	  "invierno":  { "t_mean": 11.0, "rain_total_mm":  75.0, "soil_surface_m3m3": 0.22, "soil_rootzone_m3m3": 0.25 },
+	  "primavera": { "t_mean": 19.0, "rain_total_mm": 245.0, "soil_surface_m3m3": 0.25, "soil_rootzone_m3m3": 0.27 }
+	},
+	"BuenosAires_AR": {
+	  "coords": { "lat": -34.6, "lon": -58.4 },
+	  "t_anual": 18.2,
+	  "verano":    { "t_mean": 24.0, "rain_total_mm": 360.0, "soil_surface_m3m3": 0.29, "soil_rootzone_m3m3": 0.31 },
+	  "otoño":     { "t_mean": 17.0, "rain_total_mm": 190.0, "soil_surface_m3m3": 0.27, "soil_rootzone_m3m3": 0.30 },
+	  "invierno":  { "t_mean": 10.0, "rain_total_mm":  85.0, "soil_surface_m3m3": 0.26, "soil_rootzone_m3m3": 0.28 },
+	  "primavera": { "t_mean": 18.0, "rain_total_mm": 270.0, "soil_surface_m3m3": 0.28, "soil_rootzone_m3m3": 0.30 }
+	},
+	"SantaFe_AR": {
+	  "coords": { "lat": -31.8, "lon": -60.5 },
+	  "t_anual": 18.8,
+	  "verano":    { "t_mean": 25.0, "rain_total_mm": 390.0, "soil_surface_m3m3": 0.30, "soil_rootzone_m3m3": 0.33 },
+	  "otoño":     { "t_mean": 18.0, "rain_total_mm": 210.0, "soil_surface_m3m3": 0.28, "soil_rootzone_m3m3": 0.31 },
+	  "invierno":  { "t_mean": 11.0, "rain_total_mm":  95.0, "soil_surface_m3m3": 0.25, "soil_rootzone_m3m3": 0.28 },
+	  "primavera": { "t_mean": 19.0, "rain_total_mm": 290.0, "soil_surface_m3m3": 0.27, "soil_rootzone_m3m3": 0.30 }
+	}
+  }
+}

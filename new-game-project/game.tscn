@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://elst0xn32iil"]
+
+[ext_resource type="PackedScene" uid="uid://jhtgj7muruf5" path="res://campo.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://otjxy7j74b37" path="res://game_seleccion.gd" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://b16cmc86ys7qa" path="res://level_2.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dhrlh58k2ijcx" path="res://level_3.tscn" id="4_7jktm"]
+
+[node name="Game" type="Node2D"]
+visible = false
+script = ExtResource("1_e2o6t")
+
+[node name="Niveles" type="Node2D" parent="."]
+
+[node name="Level 1" type="TileMap" parent="Niveles"]
+format = 2
+
+[node name="campo" parent="Niveles/Level 1" instance=ExtResource("1_80nbo")]
+
+[node name="Level 2" type="TileMap" parent="Niveles"]
+format = 2
+
+[node name="Level 2" parent="Niveles/Level 2" instance=ExtResource("3_fc0e3")]
+
+[node name="TileMap" type="TileMap" parent="Niveles"]
+format = 2
+
+[node name="Nivel 3" parent="Niveles/TileMap" instance=ExtResource("4_7jktm")]

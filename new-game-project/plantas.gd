@@ -24,19 +24,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			plant_sprite.play("girasol")
 			plant_sprite.frame = 0
 			timer_girasol.start()
-			NewScript.register_progress()  # Suma 1 siembra
+			
 		2:
 			plantgrowing = true
 			plant_sprite.play("papa")
 			plant_sprite.frame = 0
 			timer_papa.start()
-			NewScript.register_progress()  # También cuenta una siembra
+			
 		3:  # NUEVO: trigo
 			plantgrowing = true
 			plant_sprite.play("trigo")
 			plant_sprite.frame = 0
 			timer_trigo.start()
-			NewScript.register_progress()  # También cuenta una siembra
+			
 		_:
 			return
 

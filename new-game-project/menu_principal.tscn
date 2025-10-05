@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2ltkxivmn2vn"]
+
+[ext_resource type="Script" uid="uid://bovl2c6ltih51" path="res://menu_juego.gd" id="1_bj1uy"]
+[ext_resource type="Texture2D" uid="uid://cdcav4ax6cvo5" path="res://NASA/Imagen de WhatsApp 2025-10-05 a las 17.15.56_5bf029d1.jpg" id="2_ul6ys"]
+[ext_resource type="Texture2D" uid="uid://c6cjekiqvglk7" path="res://NASA/ChatGPT Image 5 oct 2025, 20_21_20.png" id="3_ns3he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa1tu"]
+atlas = ExtResource("3_ns3he")
+region = Rect2(0, 7, 341, 1017)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6518"]
+atlas = ExtResource("3_ns3he")
+region = Rect2(341, 7, 341, 1017)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxm4i"]
+atlas = ExtResource("3_ns3he")
+region = Rect2(682, 7, 341, 1017)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b574n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa1tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6518")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxm4i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Menu" type="Node2D"]
+position = Vector2(-6, 0)
+script = ExtResource("1_bj1uy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 328)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ul6ys")
+
+[node name="Boton_nivel_1" type="Button" parent="."]
+offset_left = 899.0
+offset_top = 426.0
+offset_right = 982.0
+offset_bottom = 479.0
+text = "LEVEL 1"
+
+[node name="Boton_nivel_2" type="Button" parent="."]
+offset_left = 897.0
+offset_top = 489.0
+offset_right = 980.0
+offset_bottom = 544.0
+text = "LEVEL 2"
+
+[node name="Boton_nivel_3" type="Button" parent="."]
+offset_left = 898.0
+offset_top = 555.0
+offset_right = 982.0
+offset_bottom = 615.0
+text = "LEVEL 3"
+
+[node name="Tutorial" type="Button" parent="."]
+offset_left = 133.0
+offset_top = 530.0
+offset_right = 245.0
+offset_bottom = 590.0
+text = "TUTORIAL"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 110.999985)
+rotation = 0.41887903
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_b574n")
+frame_progress = 0.93341804
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 132.0
+offset_top = 445.0
+offset_right = 243.0
+offset_bottom = 512.0
+text = "EXIT"
+
+[connection signal="pressed" from="Boton_nivel_1" to="." method="_on_boton_nivel_pressed"]
+[connection signal="pressed" from="Boton_nivel_1" to="." method="_on_boton_nivel_1_pressed"]
+[connection signal="pressed" from="Boton_nivel_2" to="." method="_on_boton_nivel_2_pressed"]
+[connection signal="pressed" from="Boton_nivel_3" to="." method="_on_boton_nivel_3_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

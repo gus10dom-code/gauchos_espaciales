@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0k4ejc7b2nyf"]
+[gd_scene load_steps=16 format=3 uid="uid://d0k4ejc7b2nyf"]
 
 [ext_resource type="Texture2D" uid="uid://ccmyw1r0atqua" path="res://NASA/ChatGPT Image 4 oct 2025, 10_01_53.png" id="1_0wp8v"]
-[ext_resource type="Script" path="res://carpincho_main.gd" id="1_gpaj1"]
+[ext_resource type="Script" uid="uid://dylk7oxs06dje" path="res://carpincho_main.gd" id="1_gpaj1"]
 [ext_resource type="Texture2D" uid="uid://bpbkextfy00kg" path="res://NASA/01 - copia.png" id="2_gpaj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2ost"]
@@ -102,14 +102,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpaj1"]
+size = Vector2(311, 224)
+
 [node name="carpincho" type="CharacterBody2D"]
 script = ExtResource("1_gpaj1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(903, 315)
+position = Vector2(258.99994, 336)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_guayu")
 animation = &"quieto"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(577, 322)
+position = Vector2(188.5, 150)
+shape = SubResource("RectangleShape2D_gpaj1")
+one_way_collision = true

@@ -12,3 +12,8 @@ var num_of_trigo: int = 0
 var numofgirasol: int = 0
 var numofpapa: int = 0
 var numoftrigo: int = 0
+
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://menu_principal.tscn")

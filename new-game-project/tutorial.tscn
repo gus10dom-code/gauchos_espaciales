@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bff6uh1f0cn4t"]
+
+[ext_resource type="Script" uid="uid://5tsd3tr8cydo" path="res://tutorial.gd" id="1_yb1ct"]
+[ext_resource type="Texture2D" uid="uid://gnshp57qtjb0" path="res://NASA/Imagen de WhatsApp 2025-10-05 a las 18.48.24_a12f6044.jpg" id="2_yb1ct"]
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_yb1ct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(532, 322)
+scale = Vector2(0.80595046, 0.7284289)
+texture = ExtResource("2_yb1ct")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 74.0
+offset_top = 57.0
+offset_right = 576.0
+offset_bottom = 306.0
+text = "  1 - Movement
+  Use the arrow keys to   move in the four  directions:
+  ⬆️  Up Arrow → Move up
+  ⬇️  Down Arrow → Move down
+  ⬅️  Left Arrow → Move left
+  ➡️  Right Arrow → Move right
+  Your character can freely walk around the field to explore and 
+  get close to objects like plots, crops, or seed bags."
+minimap_width = 100
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 75.0
+offset_top = 348.0
+offset_right = 577.0
+offset_bottom = 597.0
+text = "  2 - Planting and Harvesting
+  Select a seed bag with the left click.
+  Move close to an empty plot.
+  Left-click on the plot to plant.
+  Wait a few seconds for the plant to grow.
+  When the crop is ready, click again to harvest it."
+minimap_width = 100
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1044.0
+offset_top = 579.0
+offset_right = 1120.0
+offset_bottom = 621.0
+text = "MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

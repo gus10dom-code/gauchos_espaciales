@@ -17279,6 +17279,7 @@ position = Vector2(954, 468)
 position = Vector2(867, 538)
 
 [node name="main" parent="." instance=ExtResource("9_joegk")]
+z_index = 60
 
 [node name="trigo2" parent="." instance=ExtResource("11_kmy7e")]
 position = Vector2(129, 560)

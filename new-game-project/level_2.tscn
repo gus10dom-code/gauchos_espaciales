@@ -17059,6 +17059,7 @@ position = Vector2(954, 468)
 position = Vector2(867, 538)
 
 [node name="main" parent="." instance=ExtResource("9_yl73a")]
+z_index = 60
 
 [node name="TileMap8" type="TileMap" parent="."]
 scale = Vector2(0.2, 0.2)

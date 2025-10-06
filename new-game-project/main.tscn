@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bisf26dlxcsuy"]
+[gd_scene load_steps=5 format=3 uid="uid://bisf26dlxcsuy"]
 
 [ext_resource type="Script" uid="uid://dvfjs46fpnlm2" path="res://UIController.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://gx1j7xpoqihq" path="res://ClimateService.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://ct0owi8s077qa" path="res://CropCalculator.gd" id="3_lquwl"]
+[ext_resource type="Script" path="res://GameConsole.gd" id="4_1bvp3"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -11,9 +12,9 @@ script = ExtResource("1_h2yge")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 797.0
-offset_right = 1139.0
-offset_bottom = 184.0
+offset_left = 790.0
+offset_right = 1180.0
+offset_bottom = 219.0
 
 [node name="OptionButton_Provincia" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -27,6 +28,11 @@ layout_mode = 2
 [node name="Button_Calcular" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "calcular"
+
+[node name="Button_Practicar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Practice"
 
 [node name="Label_Riego" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -42,3 +48,74 @@ script = ExtResource("2_1bvp3")
 
 [node name="CropCalculator" type="Node" parent="."]
 script = ExtResource("3_lquwl")
+
+[node name="SimConsole" type="Window" parent="."]
+disable_3d = true
+oversampling_override = 1.0
+title = "Management simulation"
+position = Vector2i(0, 36)
+size = Vector2i(234, 190)
+visible = false
+wrap_controls = true
+script = ExtResource("4_1bvp3")
+
+[node name="VBox" type="VBoxContainer" parent="SimConsole"]
+offset_left = -1.0
+offset_right = 1006.0
+offset_bottom = 190.0
+
+[node name="Label_Reco" type="Label" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[node name="L1" type="Label" parent="SimConsole/VBox/Row1"]
+layout_mode = 2
+text = "\"Total irrigation\""
+
+[node name="SB_RiegoMM" type="SpinBox" parent="SimConsole/VBox/Row1"]
+layout_mode = 2
+max_value = 1000.0
+
+[node name="Row2" type="HBoxContainer" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[node name="L2" type="Label" parent="SimConsole/VBox/Row2"]
+layout_mode = 2
+text = "\"Frequency (days)\""
+
+[node name="SB_Freq" type="SpinBox" parent="SimConsole/VBox/Row2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 60.0
+value = 1.0
+
+[node name="Row3" type="HBoxContainer" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[node name="L3" type="Label" parent="SimConsole/VBox/Row3"]
+layout_mode = 2
+text = "\"Total irrigation\""
+
+[node name="SB_Fert" type="SpinBox" parent="SimConsole/VBox/Row3"]
+layout_mode = 2
+max_value = 400.0
+
+[node name="HB_Buttons" type="HBoxContainer" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[node name="Btn_Cancelar" type="Button" parent="SimConsole/VBox/HB_Buttons"]
+layout_mode = 2
+text = "\"Close\"
+"
+
+[node name="Btn_Evaluar" type="Button" parent="SimConsole/VBox/HB_Buttons"]
+layout_mode = 2
+text = "\"Test\"
+"
+
+[node name="Label_Resultado" type="Label" parent="SimConsole/VBox"]
+layout_mode = 2
+
+[connection signal="close_requested" from="SimConsole" to="." method="_on_sim_console_close_requested"]

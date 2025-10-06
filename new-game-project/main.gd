@@ -1,52 +1,50 @@
-# res://Main.gd
 extends Node
+[gd_scene load_steps=4 format=3]
 
-var current_level: Node = null
-var level_index: int = 1
+[ext_resource type="Script" path="res://UIController.gd" id="1"]
+[ext_resource type="Script" path="res://ClimateService.gd" id="2"]
+[ext_resource type="Script" path="res://CropCalculator.gd" id="3"]
 
-# Ajustá estas rutas a tus escenas reales
-const LEVEL_PATHS: Dictionary = {
-	1: "res://scenes/campo.tscn",
-	2: "res://scenes/level_2.tscn",
-	3: "res://scenes/level_3.tscn"
-}
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
 
-func _ready() -> void:
-	load_level(level_index)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 360.0
+offset_bottom = 540.0
+theme_override_constants/separation = 10
 
-func load_level(index: int) -> void:
-	if not LEVEL_PATHS.has(index):
-		push_error("No existe LEVEL_PATHS[%s]" % index)
-		return
+[node name="OptionButton_Provincia" type="OptionButton" parent="VBoxContainer"]
+size_flags_horizontal = 3
 
-	var path := String(LEVEL_PATHS[index])
-	if path.is_empty():
-		push_error("LEVEL_PATHS[%s] está vacío" % index)
-		return
+[node name="OptionButton_Estacion" type="OptionButton" parent="VBoxContainer"]
+size_flags_horizontal = 3
 
-	# Verifica que el archivo exista
-	if not FileAccess.file_exists(path):
-		push_error("No se encontró el archivo: %s" % path)
-		return
+[node name="OptionButton_Cultivo" type="OptionButton" parent="VBoxContainer"]
+size_flags_horizontal = 3
 
-	# Libera el nivel anterior si existe
-	if is_instance_valid(current_level):
-		current_level.queue_free()
-		current_level = null
+[node name="Button_Calcular" type="Button" parent="VBoxContainer"]
+text = "Calcular"
+custom_minimum_size = Vector2(200, 40)
+size_flags_horizontal = 3
 
-	# Carga y verifica que sea una PackedScene
-	var packed := load(path)
-	if not (packed is PackedScene):
-		push_error("El recurso no es PackedScene: %s" % path)
-		return
+[node name="Label_Riego" type="Label" parent="VBoxContainer"]
+text = ""
+autowrap_mode = 3
 
-	current_level = (packed as PackedScene).instantiate()
-	add_child(current_level)
-	print("Nivel %d cargado: %s" % [index, path])
+[node name="Label_Fertilizante" type="Label" parent="VBoxContainer"]
+text = ""
+autowrap_mode = 3
 
-func level_up() -> void:
-	if level_index < LEVEL_PATHS.size():
-		level_index += 1
-		load_level(level_index)
-	else:
-		print("Juego completado")
+[node name="Label_Prob" type="Label" parent="VBoxContainer"]
+text = ""
+autowrap_mode = 3
+
+[node name="ClimateService" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="CropCalculator" type="Node" parent="."]
+script = ExtResource("3")
